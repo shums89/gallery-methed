@@ -46,6 +46,7 @@ const login = () => {
   url.searchParams.append('scope', SCOPE);
 
   location.href = url;
+  btn.removeEventListener('click', login);
 }
 
 const logout = (e) => {
@@ -55,6 +56,7 @@ const logout = (e) => {
     localStorage.removeItem('Bearer');
     btn.textContent = '';
     btn.style.backgroundImage = '';
+    btn.removeEventListener('click', logout);
   }
 }
 
