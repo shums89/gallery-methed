@@ -1,5 +1,6 @@
 import { authorization } from "./authorization.js";
 import { getData } from "./getData.js";
+import { handlerLike } from "./handlerLike.js";
 import { renderGallery } from "./renderGallery.js";
 import { renderPhoto } from "./renderPhoto.js";
 
@@ -25,7 +26,13 @@ const init = async ({
 
     if (idPhoto) {
       const photo = await getData({ idPhoto });
-      renderPhoto(photoWrapper, photo);
+      const photoLike = renderPhoto(photoWrapper, photo);
+
+      photoLike.addEventListener('click', () => {
+        if (localStorage.getItem('Bearer')) {
+          handlerLike(photoLike);
+        }
+      });
     }
   }
 }

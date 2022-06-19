@@ -67,7 +67,6 @@ export const authorization = async (btn) => {
 
     btn.addEventListener('click', logout);
   } else {
-    console.log('НЕ авторизован');
     btn.addEventListener('click', login);
   }
 }
